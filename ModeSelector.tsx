@@ -13,7 +13,7 @@ interface ModeSelectorProps {
 
 const ModeSelector: React.FC<ModeSelectorProps> = ({ selectedModes, onToggle, onStart, isCalibrating }) => {
   return (
-    <div className="min-h-screen bg-slate-950 p-8 md:p-20 overflow-y-auto">
+    <div className="h-screen bg-slate-950 p-8 md:p-20 overflow-y-scroll">
       <div className="max-w-6xl mx-auto">
         <div className="flex justify-between items-end mb-12">
           <div>
@@ -34,14 +34,13 @@ const ModeSelector: React.FC<ModeSelectorProps> = ({ selectedModes, onToggle, on
             const isActive = selectedModes.includes(mode);
             return (
               <div 
-                key={mode}
-                onClick={() => onToggle(mode)}
-                className={`cursor-pointer transition-all duration-300 p-6 rounded-xl border-2 group ${
-                  isActive 
-                    ? 'border-cyan-500 bg-cyan-500/10 shadow-[0_0_15px_rgba(6,182,212,0.2)]' 
-                    : 'border-slate-800 bg-slate-900/50 hover:border-slate-700'
+              key={mode}
+              className={`cursor-pointer transition-all duration-300 p-6 rounded-xl border-2 group ${
+              isActive 
+                ? 'border-cyan-500 bg-cyan-500/10 shadow-[0_0_15px_rgba(6,182,212,0.2)]' 
+                : 'border-slate-800 bg-slate-900/50 hover:border-slate-700'
                 }`}
-              >
+                >
                 <div className="flex items-start justify-between mb-4">
                    <div className={`p-3 rounded-lg ${isActive ? 'bg-cyan-500 text-slate-950' : 'bg-slate-800 text-slate-400 group-hover:text-cyan-400'}`}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
