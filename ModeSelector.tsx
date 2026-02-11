@@ -14,6 +14,7 @@ interface ModeSelectorProps {
 const ModeSelector: React.FC<ModeSelectorProps> = ({ selectedModes, onToggle, onStart, isCalibrating }) => {
   return (
     <div className="h-screen bg-slate-950 p-8 md:p-20 overflow-y-scroll">
+
       <div className="max-w-6xl mx-auto">
         <div className="flex justify-between items-end mb-12">
           <div>
@@ -41,13 +42,27 @@ const ModeSelector: React.FC<ModeSelectorProps> = ({ selectedModes, onToggle, on
                 : 'border-slate-800 bg-slate-900/50 hover:border-slate-700'
                 }`}
                 >
+
                 <div className="flex items-start justify-between mb-4">
                    <div className={`p-3 rounded-lg ${isActive ? 'bg-cyan-500 text-slate-950' : 'bg-slate-800 text-slate-400 group-hover:text-cyan-400'}`}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
                   </div>
-                  <div className={`w-6 h-6 rounded-md border-2 transition-colors ${isActive ? 'bg-cyan-500 border-cyan-500' : 'border-slate-700'}`}>
+                  {/* <div className={`w-6 h-6 rounded-md border-2 transition-colors 
+                  ${isActive ? 'bg-cyan-500 border-cyan-500' : 'border-slate-700'}`}> */}
+                  <div
+                  onClick={(e) => {
+                  e.stopPropagation();
+                  onToggle(mode);
+                  }}
+                  className={`w-6 h-6 rounded-md border-2 flex items-center justify-center transition-colors cursor-pointer ${
+                  isActive 
+                    ? 'bg-cyan-500 border-cyan-500' 
+                  : 'border-slate-700 hover:border-cyan-400'
+                  }`}
+                  >
+
                     {isActive && (
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-slate-950" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
