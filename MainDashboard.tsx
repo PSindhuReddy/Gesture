@@ -43,7 +43,7 @@ const MainDashboard: React.FC<MainDashboardProps> = ({ state, onInteraction, onT
       <header className="h-16 border-b border-slate-800 flex items-center justify-between px-6 bg-slate-900/50 relative z-20">
         <div className="flex items-center gap-4">
           <div className="w-2 h-2 rounded-full bg-cyan-500 glow-cyan animate-pulse"></div>
-          <h1 className="font-orbitron font-black text-cyan-400 tracking-tighter text-xl">OMNISYNC LIVE</h1>
+          <h1 className="font-orbitron font-black text-cyan-400 tracking-tighter text-xl">PULSEAI LIVE</h1>
           <div className="h-4 w-px bg-slate-700"></div>
           <div className="text-[10px] text-slate-500 font-mono flex gap-4">
             <span>SESSION_ID: {state.currentUser?.id}</span>
